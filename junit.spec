@@ -1,13 +1,14 @@
 Name:           junit
 Epoch:          1
 Version:        4.12
-Release:        13
+Release:        14
 Summary:        A Java package for unit testing frameworks
 License:        EPL-1.0
 URL:            http://www.junit.org/
 Source0:        https://github.com/%{name}-team/%{name}/archive/r%{version}.tar.gz
 Patch0000:      CVE-2020-15250-pre.patch
 Patch0001:      CVE-2020-15250.patch
+Patch0002:      Fix_testfailure.patch 
 
 BuildArch:      noarch
 BuildRequires:  maven-local mvn(org.apache.felix:maven-bundle-plugin)
@@ -74,6 +75,9 @@ sed s/@version@/%{version}/ src/main/java/junit/runner/Version.java.template >sr
 %doc doc/*
 
 %changelog
+* Wed May 10 2023 Xiang Zhang <zhangxiang@iscas.ac.cn> - 1:4.12-14
+- fix testfailure
+
 * Fri Feb 19 2021 wangxiao <wangxiao65@huawei.com> - 1:4.12-13
 - Fix CVE-2020-15250
 
